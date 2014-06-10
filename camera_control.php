@@ -2,6 +2,7 @@
 <head>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="rotate_button.js"></script>
 <meta content="text/html; charset=UTF8" http-equiv="content-type">
 	<title>Camera Controller</title>
 	<style type = "text/css">
@@ -27,15 +28,20 @@ cellpadding="2" cellspacing="2">
 <tr>
 <td style="vertical-align: top;"><br>
 	<center> Camera 1 </center>
+			
 			<embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" version="VideoLAN.VLCPlugin.2" 
-	 		width="165px"  height="165px" id="vlc" loop="yes" autoplay="yes" 
-	 		target="rtsp://140.113.208.143:554/medias1">
+	 		width="165px"  height="165px" id="vlc2" loop="yes" autoplay="yes" 
+	 		target="rtsp://140.113.208.143:554/medias1"
+	 		
+	 		>
 	 		</embed>
+	
+			<!-- target="http://140.113.208.143:80/mjpeg.cgi"  -->
 </td>
 <td style="vertical-align: top;"><br>
 	<center> Camera 2 </center>
 			<embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" version="VideoLAN.VLCPlugin.2" 
-	 		width="165px"  height="165px" id="vlc" loop="yes" autoplay="yes" 
+	 		width="165px"  height="165px" id="vlc2" loop="yes" autoplay="yes" 
 	 		target="rtsp://140.113.121.88:554/medias1">
 </td>
 </tr>
@@ -43,14 +49,14 @@ cellpadding="2" cellspacing="2">
 <td style="vertical-align: top;"><br>
 	<center> Camera 3 </center>
 			<embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" version="VideoLAN.VLCPlugin.2" 
-	 		width="165px"  height="165px" id="vlc" loop="yes" autoplay="yes" 
+	 		width="165px"  height="165px" id="vlc3" loop="yes" autoplay="yes" 
 	 		target="rtsp://140.113.121.88:554/medias1">
 	 		</embed>
 </td>
 <td style="vertical-align: top;"><br>
 	<center> Camera 4 </center>
 			<embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" version="VideoLAN.VLCPlugin.2" 
-	 		width="165px"  height="165px" id="vlc" loop="yes" autoplay="yes" 
+	 		width="165px"  height="165px" id="vlc4" loop="yes" autoplay="yes" 
 	 		target="rtsp://140.113.121.88:554/medias1">
 	 		</embed>
 </td>
@@ -59,14 +65,14 @@ cellpadding="2" cellspacing="2">
 <td style="vertical-align: top;"><br>
 	<center> Camera 5 </center>
 			<embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" version="VideoLAN.VLCPlugin.2" 
-	 		width="165px"  height="165px" id="vlc" loop="yes" autoplay="yes" 
+	 		width="165px"  height="165px" id="vlc5" loop="yes" autoplay="yes" 
 	 		target="rtsp://140.113.121.88:554/medias1">
 	 		</embed>
 </td>
 <td style="vertical-align: top;"><br>
 	<center> Camera 6 </center>
 			<embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" version="VideoLAN.VLCPlugin.2" 
-	 		width="165px"  height="165px" id="vlc" loop="yes" autoplay="yes" 
+	 		width="165px"  height="165px" id="vlc6" loop="yes" autoplay="yes" 
 	 		target="rtsp://140.113.121.88:554/medias1">
 	 		</embed>
 </td>
@@ -246,143 +252,13 @@ border="1" cellpadding="2" cellspacing="2">
 <a id="show_angle" style="position:absolute; left:500px; bottom:400px;"> 
 	aaaaa </a>
 -->
+
 <script>
-	
 	$("button").click(function(){
 		$("#camera").css("transform", "rotate("+cam1_angle_ab+"deg)");
 	});
+
 </script>
-
-<script>
-	function leftup(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?move=leftup',
-		dataType: 'jsonp'
-		});
-	}
-	function up(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?move=up',
-		dataType: 'jsonp'
-		});
-	}
-	function rightup(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?move=rightup',
-		dataType: 'jsonp'
-		});
-	}
-	function left(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?move=left',
-		dataType: 'jsonp'
-		});
-	}
-	function home(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?move=home',
-		dataType: 'jsonp'
-		});
-		cam1_angle_ab = 0;
-	}
-	function right(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?move=right',
-		dataType: 'jsonp'
-		});
-	}function leftdown(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?move=leftdown',
-		dataType: 'jsonp'
-		});
-	}function down(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?move=down',
-		dataType: 'jsonp'
-		});
-	}function rightdown(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?move=rightdown',
-		dataType: 'jsonp'
-		});
-	}
-
-	function pan170(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?aPan=170',
-		dataType: 'jsonp'
-		});
-		cam1_angle_ab = 170;
-	}
-	function panm170(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?aPan=-170',
-		dataType: 'jsonp'
-		});
-		cam1_angle_ab = -170;
-	}
-	function panp20(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?rPan=20',
-		dataType: 'jsonp'
-		});
-		cam1_angle_ab = cam1_angle_ab + 20;
-	}
-	function panpm20(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?rPan=-20',
-		dataType: 'jsonp'
-		});
-		cam1_angle_ab = cam1_angle_ab - 20;
-	}
-	function tilt60(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?aTilt=60',
-		dataType: 'jsonp'
-		});
-	}
-	function tiltm10(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?aTilt=-10',
-		dataType: 'jsonp'
-		});
-	}
-	function tiltp20(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?rTilt=20',
-		dataType: 'jsonp'
-		});
-	}
-	function tiltpm20(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?rTilt=-20',
-		dataType: 'jsonp'
-		});
-	}
-
-	function zoomin(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?move=rZoomIn',
-		dataType: 'jsonp'
-		});
-	}
-	function zoomout(){
-		$.ajax({
-		url: 'http://140.113.208.143/cgi-bin/view/cammove.cgi?move=rZoomOut',
-		dataType: 'jsonp'
-		});
-	}
-	function set_angle (angle_rotate){
-		cam1_angle_ab = angle_rotate;
-	}
-	function add_angle (angle_rotate){
-		cam1_angle_ab = cam1_angle_ab + angle_rotate;
-	}
-	function sub_angle (angle_rotate){
-		cam1_angle_ab = cam1_angle_ab - angle_rotate;
-	}
-</script>
-
 
 </body>
 </html>
