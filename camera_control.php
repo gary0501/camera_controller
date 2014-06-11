@@ -2,7 +2,7 @@
 <head>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="rotate_button.js"></script>
+
 <meta content="text/html; charset=UTF8" http-equiv="content-type">
 	<title>Camera Controller</title>
 	<style type = "text/css">
@@ -14,9 +14,7 @@
 
 	}
 	</style>
-<script>
-	var cam1_angle_ab = 0;
-</script>
+
 </head>
 <body>
 
@@ -82,7 +80,7 @@ cellpadding="2" cellspacing="2">
 <br>
 
 <!-- map -->
-<img src="ec610.png" 
+<img id="lab_map" src="ec610.png" 
 style=" position:absolute; left:400px; top:50px; transform:rotate( deg);"
 width="600px">
 
@@ -90,7 +88,7 @@ width="600px">
 style="position:absolute; left:760px; top:180px;"
 width="40px"
 >
-
+<!-- camera center is at (779, 224)  -->
 
 
 <!-- nine blocks -->
@@ -253,14 +251,10 @@ border="1" cellpadding="2" cellspacing="2">
 	aaaaa </a>
 -->
 
-<script>
-	$("button").click(function(){
-		$("#camera").css("transform", "rotate("+cam1_angle_ab+"deg)");
-	});
 
-</script>
 
 </body>
+<script src="rotate_button.js"></script>
 </html>
 
 
